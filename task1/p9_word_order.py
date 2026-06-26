@@ -19,7 +19,26 @@ def word_order(words: list[str]) -> tuple[int, list[int]]:
     """
     # TODO: Count occurrences while preserving first-appearance order,
     # then return (number_of_distinct_words, list_of_counts).
-    pass
+    distinct_words = []
+
+    # collect unique words
+    for i in words:
+        if i not in distinct_words:
+            distinct_words.append(i)
+
+    counts = []
+
+    # count each unique word
+    for w in distinct_words:
+        count = 0
+
+        for x in words:
+            if x == w:
+                count += 1
+
+        counts.append(count)
+
+    return len(distinct_words), counts
 
 
 if __name__ == "__main__":
