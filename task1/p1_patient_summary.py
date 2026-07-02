@@ -43,12 +43,12 @@ def count_active_patients(patient_records):
 
 def unique_conditions(patient_records):
     """Return a sorted list of unique conditions."""
-    conditions = []
-    for i in patient_records:
-        if (i["condition"]) not in conditions:
-            conditions.append(i["condition"])
-    sorted_list = sorted(conditions)
-    return sorted_list
+    conditions = set()
+
+    for patient in patient_records:
+        conditions.add(patient["condition"])
+
+    return sorted(conditions)
 
 
 def count_by_condition(patient_records):
