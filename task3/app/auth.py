@@ -23,7 +23,7 @@ pwd_context = CryptContext(
 )
 
 # JWT Configuration
-SECRET_KEY = settings.SECRET_KEY
+SECRET_KEY = settings.SECRET_KEY or "dev-secret-key-change-this"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
