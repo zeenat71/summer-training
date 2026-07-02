@@ -12,7 +12,7 @@ patient_names = ["Ayesha", "Omar", "Sara", "Bilal", "Hina", "Usman", "Maha"]
 def slicing_examples():
     """Return examples of list slicing."""
     # TODO: Return first three IDs, last three IDs, and reversed IDs.
-    return [patient_ids[:3], patient_ids[-3:], patient_ids[::-1]]
+    return (patient_ids[:3], patient_ids[-3:], patient_ids[::-1])
 
 
 def loop_examples():
