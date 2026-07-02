@@ -71,9 +71,9 @@ if __name__ == "__main__":
 
     print("-- BMI + Catergory --")
     for p in patients:
-        BMI = calculate_bmi(p["weight_kg"], p["height_m"])
-        category = classify_bmi(BMI)
-        print(p["name"], "->", BMI, "->", category)
+        bmi = calculate_bmi(p["weight_kg"], p["height_m"])
+        category = classify_bmi(bmi)
+        print(p["name"], "->", bmi, "->", category)
 
     print("-- Active Patients --")
     print(get_active_patients(patients))
