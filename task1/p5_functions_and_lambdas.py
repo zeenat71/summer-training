@@ -36,12 +36,12 @@ def format_name(name: str) -> str:
     """Convert a name to title case."""
     # TODO: Format name.
     words = name.split()
-    List_of_title_case = []
+    list_of_title_case = []
 
     for w in words:
-        List_of_title_case.append(w[0].upper() + w[1:].lower())
+        list_of_title_case.append(w[0].upper() + w[1:].lower())
 
-    return " ".join(List_of_title_case)
+    return " ".join(list_of_title_case)
 
 
 def get_active_patients(patient_records: list[dict]) -> list[dict]:
