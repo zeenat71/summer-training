@@ -1,11 +1,14 @@
 from datetime import datetime, timedelta, UTC
-from jose import JWTError, jwt
+
+import jwt
+from jwt.exceptions import InvalidTokenError
+
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session, select
-from app.config import settings
 
+from app.config import settings
 from app.database import get_session
 from app.models import User
 
@@ -69,7 +72,7 @@ def get_current_user(
                 detail="Invalid token"
             )
 
-    except JWTError:
+    except InvalidTokenError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid token"
