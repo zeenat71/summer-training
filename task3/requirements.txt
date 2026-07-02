@@ -13,6 +13,7 @@ pydantic-settings
 sqlmodel
 pyjwt
 passlib[bcrypt]
+python-multipart
 
 #Migrations
 alembic
