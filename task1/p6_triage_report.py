@@ -50,7 +50,7 @@ def build_triage_report(patient_records: list[dict]) -> dict:
 
     patients_with_labels = add_risk_labels(patient_records)
 
-    Total_patients = len(patients_with_labels)
+    total_patients = len(patients_with_labels)
     active_patients = 0
 
     high = 0
@@ -75,7 +75,7 @@ def build_triage_report(patient_records: list[dict]) -> dict:
             low += 1
 
     return {
-        "summary": {"total_patients": Total_patients, "active_patients": active_patients},
+        "summary": {"total_patients": total_patients, "active_patients": active_patients},
         "risk_counts": {"high": high, "medium": medium, "low": low},
         "active_high_risk_patients": active_high_risk,
     }
@@ -83,8 +83,8 @@ def build_triage_report(patient_records: list[dict]) -> dict:
 
 if __name__ == "__main__":
     # TODO: Add assertions after implementing the functions.
-    Report = build_triage_report(patients)
-    print(Report)
+    report = build_triage_report(patients)
+    print(report)
 
     assert label_risk(91) == "high"
     assert label_risk(72) == "medium"
