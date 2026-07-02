@@ -24,11 +24,11 @@ def total_patients(patient_records):
 def average_age(patient_records):
     """Return the average patient age."""
     total_patients = 0
-    Age = 0
+    age = 0
     for i in patient_records:
         total_patients = total_patients + 1
-        Age = Age + i["age"]
-    average_age = Age / total_patients
+        age = age + i["age"]
+    average_age = age / total_patients
     return average_age
 
 
