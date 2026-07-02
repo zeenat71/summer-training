@@ -2,8 +2,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    SECRET_KEY: str
-    DATABASE_URL: str
+    SECRET_KEY: str = "change-me"
+    DATABASE_URL: str = "sqlite:///./patients.db"
 
     model_config = SettingsConfigDict(
         env_file=".env"
