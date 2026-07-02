@@ -53,26 +53,16 @@ def unique_conditions(patient_records):
 
 def count_by_condition(patient_records):
     """Return a dictionary containing patient count by condition."""
-    # total unique conditions
-    conditions = []
-
-    for i in patient_records:
-        if i["condition"] not in conditions:
-            conditions.append(i["condition"])
-
-    sorted_list = sorted(conditions)
-
-    # loop on each condition for patient count
+    
     result = {}
 
-    for i in sorted_list:
-        count_of_patients = 0
+    for patient in patient_records:
+        condition = patient["condition"]
 
-        for j in patient_records:
-            if j["condition"] == i:
-                count_of_patients += 1
-
-        result[i] = count_of_patients
+        if condition not in result:
+            result[condition] = 1
+        else:
+            result[condition] += 1
 
     return result
 
