@@ -31,11 +31,11 @@ def comprehension_examples():
     # TODO: Create a list of even patient IDs.
     # TODO: Create uppercase patient names.
 
-    list_of_evenID_patients = [i for i in patient_ids if i % 2 == 0]
+    list_of_even_id_patients = [i for i in patient_ids if i % 2 == 0]
 
     upper_patient_names = [name.upper() for name in patient_names]
 
-    return list_of_evenID_patients, upper_patient_names
+    return list_of_even_id_patients, upper_patient_names
 
 
 if __name__ == "__main__":
