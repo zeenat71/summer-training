@@ -28,7 +28,7 @@ def get_patient_city(patient_id):
     if p_id:
         return p_id["contact"]["city"]
 
-    raise KeyError("patient_id not found")
+    return None
 
 
 def update_patient_condition(patient_id, new_condition):
