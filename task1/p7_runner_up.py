@@ -17,27 +17,30 @@ def find_runner_up(scores: list[int]) -> int:
     # TODO: Remove duplicate scores, then return the second largest value.
     unique_scores = []
 
-    # 1. duplicates remove manually
-    for i in scores:
-        if i not in unique_scores:
-            unique_scores.append(i)
+    # 1. Remove duplicates manually.
+    for score in scores:
+        if score not in unique_scores:
+            unique_scores.append(score)
 
-    # 2. find largest
+    if len(unique_scores) < 2:
+        raise ValueError("At least two distinct scores are required.")        
+
+    # 2. Find the largest score.
     max_score = unique_scores[0]
 
-    for i in unique_scores:
-        if i > max_score:
-            max_score = i
+    for unique_score in unique_scores:
+        if unique_score > max_score:
+            max_score = unique_score
 
-    # 3. remove largest
+    # 3. Remove the largest score.
     unique_scores.remove(max_score)
 
-    # 4. find second largest
+    # 4. Find the second largest score.
     runner_up = unique_scores[0]
 
-    for i in unique_scores:
-        if i > runner_up:
-            runner_up = i
+    for unique_score in unique_scores:
+        if unique_score > runner_up:
+            runner_up = unique_score
 
     return runner_up
 
