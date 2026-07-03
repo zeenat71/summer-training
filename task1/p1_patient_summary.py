@@ -53,7 +53,6 @@ def unique_conditions(patient_records):
 
 def count_by_condition(patient_records):
     """Return a dictionary containing patient count by condition."""
-    
     result = {}
 
     for patient in patient_records:
