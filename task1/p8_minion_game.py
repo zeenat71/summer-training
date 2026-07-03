@@ -27,19 +27,20 @@ def minion_game(word: str) -> str:
     """
     # TODO: Add up each player's score, then return the formatted result.
 
-    Stuart_score = 0
-    Kevin_score = 0
+    stuart_score = 0
+    kevin_score = 0
+    n = len(word)
 
-    for i in range(len(word)):
-        if word[i] in VOWELS:
-            Kevin_score += len(word) - i
+    for index, char in enumerate(word):
+        if char in VOWELS:
+            kevin_score += n - index
         else:
-            Stuart_score += len(word) - i
+            stuart_score += n - index
 
-    if Stuart_score > Kevin_score:
-        return "Stuart " + str(Stuart_score)
-    elif Kevin_score > Stuart_score:
-        return "Kevin " + str(Kevin_score)
+    if stuart_score > kevin_score:
+        return f"Stuart {stuart_score}"
+    elif kevin_score > stuart_score:
+        return f"Kevin {kevin_score}"
     else:
         return "Draw"
 
