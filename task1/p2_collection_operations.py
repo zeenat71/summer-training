@@ -20,20 +20,39 @@ def list_operations(conditions: list[str]) -> list[str]:
     - Remove "asthma".
     - Return the list sorted alphabetically.
     """
-    # TODO: Implement the steps described above.
-    pass
+    copy_of_conditions = []
+
+    for i in conditions:
+        copy_of_conditions.append(i)
+
+    copy_of_conditions.append("cardiac")
+    copy_of_conditions.remove("asthma")
+
+    sorted_list = sorted(copy_of_conditions)
+    return sorted_list
 
 
 def set_operations(primary: set[str], follow_up: set[str]) -> dict[str, set[str]]:
-    """Return common, all-unique, and primary-only conditions.
+    """Return common, all-unique, and primary-only conditions."""
+    common_conditions = primary.intersection(follow_up)
 
-    Return a dictionary with these keys:
+    unique_conditions = primary.union(follow_up)
+
+    primary_only_conditions = primary.difference(follow_up)
+
+    """ Return a dictionary with these keys:
     - "common": conditions in both sets
     - "all_unique": every condition across both sets
     - "only_primary": conditions in primary but not in follow_up
     """
-    # TODO: Build and return the dictionary described above.
-    pass
+
+    dic_of_conditions = {
+        "common": common_conditions,
+        "all_unique": unique_conditions,
+        "only_primary": primary_only_conditions,
+    }
+
+    return dic_of_conditions
 
 
 if __name__ == "__main__":
