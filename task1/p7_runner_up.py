@@ -23,7 +23,7 @@ def find_runner_up(scores: list[int]) -> int:
             unique_scores.append(score)
 
     if len(unique_scores) < 2:
-        raise ValueError("At least two distinct scores are required.")        
+        raise ValueError("At least two distinct scores are required.")
 
     # 2. Find the largest score.
     max_score = unique_scores[0]
