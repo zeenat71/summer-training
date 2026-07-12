@@ -11,7 +11,17 @@ Then open the interactive docs at http://127.0.0.1:8000/docs
 
 from fastapi import FastAPI
 
+from contextlib import asynccontextmanager
+from sqlmodel import SQLModel
+from app.database import engine
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    SQLModel.metadata.create_all(engine)
+    yield
+
 app = FastAPI(
+    lifespan=lifespan,
     title="Patient Management API",
     description="Training capstone for Task 3 (FastAPI).",
     version="0.1.0",
@@ -31,5 +41,8 @@ def health() -> dict[str, str]:
 
 
 # TODO: create app/routers/patients.py and register it here, e.g.
-#     from app.routers import patients
-#     app.include_router(patients.router)
+from app.routers import patients
+from app.routers import auth
+
+app.include_router(patients.router)
+app.include_router(auth.router)
